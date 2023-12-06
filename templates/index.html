@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <div class="container" x-data="{ url_relative_guardar: '{% url 'post' %}',  dataForm: { inputWord: null } }">
+        <h1 class="text-center">{{ title }}</h1>
+        <form action="" class="mt-4">
+            <div class="mb-3">
+                <label for="input-word-palindrome" class="form-label fs-4">{{ h1 }}:</label>
+                <input type="text" class="form-control text-center" x-model="dataForm.inputWord">
+            </div>
+            <div class="mb-3 text-center">
+                <button type="button" class="btn btn-primary btn-lg comprobar-palabra" @click="sendWord">Comprobar</button>
+
+            </div>
+        </form>
+    </div>
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'js/post_word.js' %}"></script>
+{% endblock %}
